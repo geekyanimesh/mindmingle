@@ -20,9 +20,9 @@ export default function Home() {
       <section className="py-16 px-6 max-w-7xl mx-auto">
         <div className="grid md:grid-cols-2 gap-12 items-center">
           <div>
-            <h2 className="text-3xl md:text-4xl font-bold text-[#00bcd4] mb-4 font-serif">Welcome To The Kids Square</h2>
+            <h2 className="text-6xl md:text-4xl font-bold text-[#00bcd4] mb-4 font-serif">Welcome To The Kids Square</h2>
             <div className="w-16 h-0.5 bg-[#00bcd4] mb-6"></div>
-            <p className="text-slate-500 text-sm leading-relaxed mb-8">
+            <p className="md:text-xl text-slate-500 text-sm leading-relaxed mb-8">
               The Kids Square is one of the best play school chain ventured by Kids Square Private Limited, A Pioneer organization in education. The organization is managed by a team of highly qualified, dedicated and experienced educationists and professionals who have taken initiative in making The KiDS Square a dream place for little wonders. We believe that children need a safe, clean and hygienic environment in which they can grow themselves.
             </p>
             
@@ -140,7 +140,36 @@ export default function Home() {
       </section>
       
       {/* Footer Decorative Grass Break */}
-      <div className="w-full h-24 bg-gradient-to-t from-green-400 to-transparent opacity-50 border-b-8 border-green-500"></div>
+      {/* Modern Pre-Footer CTA with Floating CSS Shapes */}
+      <section className="relative py-24 px-6 overflow-hidden bg-[#00bcd4] mt-12">
+        {/* Floating Background Shapes */}
+        <div className="absolute top-10 left-10 w-32 h-32 bg-white/20 rounded-full blur-2xl"></div>
+        <div className="absolute -bottom-10 -left-10 w-48 h-48 bg-[#ffb300]/30 rounded-full blur-xl"></div>
+        <div className="absolute top-1/4 right-20 w-24 h-24 bg-[#ff5252]/40 rounded-3xl rotate-45 blur-md"></div>
+        <div className="absolute bottom-10 right-1/4 w-40 h-40 bg-[#8bc34a]/30 rounded-full blur-2xl"></div>
+        <div className="absolute -top-16 right-1/3 w-64 h-64 bg-white/10 rounded-full blur-3xl"></div>
+
+        {/* Decorative Grid Pattern (Subtle) */}
+        <div className="absolute inset-0 bg-[linear-gradient(rgba(255,255,255,0.1)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.1)_1px,transparent_1px)] bg-[size:40px_40px] opacity-20"></div>
+
+        {/* Content */}
+        <div className="relative z-10 max-w-4xl mx-auto text-center">
+          <h2 className="text-4xl md:text-5xl font-extrabold text-white mb-6 tracking-tight drop-shadow-sm">
+            Give Your Child The Best Start
+          </h2>
+          <p className="text-cyan-50 text-lg md:text-xl font-medium mb-10 max-w-2xl mx-auto leading-relaxed">
+            Admissions are now open for the upcoming academic year. Join our vibrant community of learners and let your little one shine!
+          </p>
+          <div className="flex flex-col sm:flex-row gap-5 justify-center items-center">
+            <button className="bg-[#ff5252] hover:bg-red-600 text-white px-10 py-4 rounded-xl text-base font-extrabold uppercase tracking-widest transition-all shadow-xl hover:-translate-y-1 w-full sm:w-auto border-2 border-[#ff5252]">
+              Apply Now
+            </button>
+            <button className="bg-transparent border-2 border-white hover:bg-white hover:text-[#00bcd4] text-white px-10 py-4 rounded-xl text-base font-extrabold uppercase tracking-widest transition-all shadow-lg w-full sm:w-auto">
+              Contact Us
+            </button>
+          </div>
+        </div>
+      </section>
     </div>
   );
 }

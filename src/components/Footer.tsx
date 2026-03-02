@@ -67,7 +67,7 @@ export default function Footer() {
       <div className="bg-[#151515] py-6 mt-8">
         <div className="max-w-7xl mx-auto px-6 flex flex-col md:flex-row justify-between items-center text-[12px] font-bold tracking-wide text-slate-500 gap-3">
           <p>COPYRIGHT © {new Date().getFullYear()} THE KID SQUARE PVT LTD. ALL RIGHTS RESERVED</p>
-          <p>DESIGNED & DEVELOPED BY WEB HOUSE</p>
+          <p>DESIGNED & DEVELOPED BY xlr8Devs</p>
         </div>
       </div>
     </footer>
