@@ -1,175 +1,283 @@
-// src/app/page.tsx
 "use client";
 
 import { useState } from "react";
-// Using the exact import path requested
 import ImageSlideshow from "@/src/components/ImageSlideshow";
+
+const tabs = [
+  { id: "Music", icon: "🎵", color: "#673ab7", image: "/image1.JPG" },
+  { id: "Learn", icon: "🎓", color: "#ff5252", image: "/10846384_1550551535163234_4269812039320515755_n (1).jpg" },
+  { id: "Painting", icon: "🎨", color: "#ff9800", image: "/DSC_0874.JPG" },
+  { id: "Sports", icon: "⚽", color: "#00bcd4", image: "/_DSC0076.JPG" },
+  { id: "Playground", icon: "🏆", color: "#4caf50", image: "/_DSC0057.JPG" },
+];
+
+const tabDescriptions: Record<string, string> = {
+  Music: "Music nurtures creativity, emotional intelligence and cognitive development in young children. Our music sessions make learning joyful and memorable.",
+  Learn: "Our research-backed curriculum blends academics with hands-on discovery. Every child learns at their own pace in a safe, supportive environment.",
+  Painting: "Art empowers children to express themselves freely. Our painting sessions develop fine motor skills, focus, and a lifelong love for creativity.",
+  Sports: "Physical activity is essential for growing bodies and minds. Our sports program builds teamwork, coordination and healthy habits from an early age.",
+  Playground: "Our safe, stimulating playground encourages exploration, social skills and joyful movement — because play is the child's first language.",
+};
+
+const features = [
+  { icon: "📚", color: "#ff5252", title: "Active Learning", desc: "A form of learning where teaching strives to actively involve students in the process." },
+  { icon: "😄", color: "#4caf50", title: "Funny & Happy", desc: "A joyful atmosphere where every child looks forward to coming to school each day." },
+  { icon: "❤️", color: "#673ab7", title: "Fulfilled With Love", desc: "Every child feels safe, celebrated and loved — building confidence every single day." },
+  { icon: "🎓", color: "#ff9800", title: "Expert Teachers", desc: "Highly trained educators who understand each child's unique developmental needs." },
+];
+
+const testimonials = [
+  { quote: "We thank you for taking such good care of our daughter. She loves coming to school every morning!", name: "Priyanka Singh", role: "Parent of Toddler student" },
+  { quote: "The teachers are incredibly patient and loving. My son has grown so much in just one term.", name: "Rahul Sharma", role: "Parent of Playgroup student" },
+  { quote: "Amazing environment and curriculum. Our daughter is already reading at the Nursery level!", name: "Meena Verma", role: "Parent of Nursery student" },
+];
 
 export default function Home() {
   const [activeTab, setActiveTab] = useState("Music");
+  const [activeTestimonial, setActiveTestimonial] = useState(0);
+
+  const activeTabData = tabs.find((t) => t.id === activeTab)!;
 
   return (
-    <div className="min-h-screen bg-white text-slate-800 font-sans">
-      
-      {/* Slideshow Section */}
-      <section className="w-full bg-slate-100">
-        <ImageSlideshow />
-      </section>
+    <>
+      <style>{`
+        @import url('https://fonts.googleapis.com/css2?family=Fredoka+One&family=Poppins:wght@400;500;600;700&display=swap');
+        .sec-title { font-family: 'Fredoka One', cursive; }
+        .body-text  { font-family: 'Poppins', sans-serif; }
+        .card-hover { transition: transform 0.25s ease, box-shadow 0.25s ease; }
+        .card-hover:hover { transform: translateY(-5px); box-shadow: 0 14px 36px rgba(0,0,0,0.1); }
+        @keyframes fadeUp { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
+        .fade-in { animation: fadeUp 0.55s ease both; }
+        @keyframes fadeSlide { from { opacity: 0; transform: translateX(12px); } to { opacity: 1; transform: translateX(0); } }
+        .tab-fade { animation: fadeSlide 0.3s ease both; }
+      `}</style>
 
-      {/* Welcome Section */}
-      <section className="py-16 px-6 max-w-7xl mx-auto">
-        <div className="grid md:grid-cols-2 gap-12 items-center">
-          <div>
-            <h2 className="text-6xl md:text-4xl font-bold text-[#00bcd4] mb-4 font-serif">Welcome To The Kids Square</h2>
-            <div className="w-16 h-0.5 bg-[#00bcd4] mb-6"></div>
-            <p className="md:text-xl text-slate-500 text-sm leading-relaxed mb-8">
-              The Kids Square is one of the best play school chain ventured by Kids Square Private Limited, A Pioneer organization in education. The organization is managed by a team of highly qualified, dedicated and experienced educationists and professionals who have taken initiative in making The KiDS Square a dream place for little wonders. We believe that children need a safe, clean and hygienic environment in which they can grow themselves.
-            </p>
-            
-            <div className="grid sm:grid-cols-2 gap-6">
-              <div className="flex gap-4">
-                <div className="w-10 h-10 shrink-0 bg-[#ff5252] rounded-full flex items-center justify-center text-white">
-                  <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253" /></svg>
-                </div>
-                <div>
-                  <h4 className="font-bold text-slate-800 text-sm mb-1">Active Learning</h4>
-                  <p className="text-xs text-slate-500">It is a form of learning in which teaching strives to involve students in the learning process.</p>
-                </div>
-              </div>
-              <div className="flex gap-4">
-                <div className="w-10 h-10 shrink-0 bg-[#8bc34a] rounded-full flex items-center justify-center text-white">
-                  <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M14.828 14.828a4 4 0 01-5.656 0M9 10h.01M15 10h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>
-                </div>
-                <div>
-                  <h4 className="font-bold text-slate-800 text-sm mb-1">Funny and Happy</h4>
-                  <p className="text-xs text-slate-500">While kids are not always thrilled to go back to school, parents do not always share that feeling.</p>
-                </div>
-              </div>
-              <div className="flex gap-4">
-                <div className="w-10 h-10 shrink-0 bg-[#673ab7] rounded-full flex items-center justify-center text-white">
-                  <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z" /></svg>
-                </div>
-                <div>
-                  <h4 className="font-bold text-slate-800 text-sm mb-1">Fulfill With Love</h4>
-                  <p className="text-xs text-slate-500">Traveling back in their history we see the same instruction to love God uninterrupted.</p>
-                </div>
-              </div>
-              <div className="flex gap-4">
-                <div className="w-10 h-10 shrink-0 bg-[#ff9800] rounded-full flex items-center justify-center text-white">
-                  <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z" /></svg>
-                </div>
-                <div>
-                  <h4 className="font-bold text-slate-800 text-sm mb-1">Expert Teachers</h4>
-                  <p className="text-xs text-slate-500">Our teachers have become experts at understanding the developmental characteristics.</p>
-                </div>
-              </div>
-            </div>
-          </div>
-          
-          <div className="relative rounded-3xl overflow-hidden shadow-lg border-4 border-white">
-             {/* You can replace this src with your actual student image */}
-            <img src="/img2.jpg" alt="Student painting" className="w-full h-auto object-cover" />
-          </div>
-        </div>
-      </section>
+      <div className="min-h-screen bg-[#fafafa]">
 
-      {/* Decorative Grass Break (Placeholder using CSS colors, replace with your actual SVG/PNG grass border) */}
-      <div className="w-full h-24 bg-gradient-to-t from-green-400 to-transparent opacity-50 border-b-8 border-green-500"></div>
+        {/* ── Slideshow ── */}
+        <section className="w-full bg-slate-100">
+          <ImageSlideshow />
+        </section>
 
-      {/* Colorful Tabbed Section */}
-      <section className="py-16 bg-[#f8f9fa] px-4">
-        <div className="max-w-5xl mx-auto bg-white shadow-xl rounded-lg overflow-hidden border border-slate-100">
-          {/* Tabs */}
-          <div className="grid grid-cols-2 md:grid-cols-5 text-center text-sm font-bold uppercase tracking-wider">
-            <button onClick={() => setActiveTab("Music")} className={`py-6 flex flex-col items-center gap-2 ${activeTab === 'Music' ? 'bg-white text-slate-800' : 'bg-slate-50 text-slate-400'}`}>
-              <span className="text-2xl">🎵</span> Music
-            </button>
-            <button onClick={() => setActiveTab("Learn")} className={`py-6 flex flex-col items-center gap-2 ${activeTab === 'Learn' ? 'bg-[#ff5252] text-white' : 'bg-[#ff5252]/90 text-white/80'}`}>
-              <span className="text-2xl">🎓</span> Learn
-            </button>
-            <button onClick={() => setActiveTab("Painting")} className={`py-6 flex flex-col items-center gap-2 ${activeTab === 'Painting' ? 'bg-[#ff9800] text-white' : 'bg-[#ff9800]/90 text-white/80'}`}>
-              <span className="text-2xl">🎨</span> Painting
-            </button>
-            <button onClick={() => setActiveTab("Sports")} className={`py-6 flex flex-col items-center gap-2 ${activeTab === 'Sports' ? 'bg-[#00bcd4] text-white' : 'bg-[#00bcd4]/90 text-white/80'}`}>
-              <span className="text-2xl">⚽</span> Sports
-            </button>
-            <button onClick={() => setActiveTab("Playground")} className={`py-6 flex flex-col items-center gap-2 col-span-2 md:col-span-1 ${activeTab === 'Playground' ? 'bg-[#ffb300] text-white' : 'bg-[#ffb300]/90 text-white/80'}`}>
-              <span className="text-2xl">🏆</span> Playground
-            </button>
-          </div>
-
-          {/* Tab Content */}
-          <div className="p-8 md:p-12 grid md:grid-cols-2 gap-10">
+        {/* ── Welcome Section ── */}
+        <section className="py-20 px-6 max-w-7xl mx-auto fade-in">
+          <div className="grid md:grid-cols-2 gap-14 items-center">
+            {/* Left */}
             <div>
-              <h3 className="text-3xl font-serif font-bold text-[#00bcd4] mb-4">{activeTab}</h3>
-              <p className="text-slate-500 text-sm leading-relaxed mb-6">
-                {activeTab} is an art form and cultural activity whose medium is sound organized in time. The common elements of music are pitch, rhythm, dynamics, and the sonic qualities of timbre and texture.
+              <span className="inline-flex items-center gap-2 bg-[#00bcd4]/10 text-[#00bcd4] text-xs font-black uppercase tracking-[0.15em] px-4 py-1.5 rounded-full mb-5 body-text">
+                🌟 Welcome
+              </span>
+              <h2 className="sec-title text-4xl md:text-5xl text-slate-800 mb-3 leading-tight">
+                Welcome To <span className="text-[#00bcd4]">The Kids Square</span>
+              </h2>
+              <div className="flex gap-2 mb-6">
+                <div className="h-1 w-12 rounded-full bg-[#ff5252]" />
+                <div className="h-1 w-6 rounded-full bg-[#00bcd4]" />
+              </div>
+              <p className="body-text text-slate-500 text-[15px] leading-relaxed mb-10 font-medium">
+                The Kids Square is one of the best play school chains ventured by Kids Square Private Limited, a pioneer organization in education. The organization is managed by a team of highly qualified, dedicated and experienced educationists who have taken initiative in making The KiDS Square a dream place for little wonders. We believe that children need a safe, clean and hygienic environment in which they can grow.
               </p>
-              <div className="grid grid-cols-2 gap-y-3 gap-x-4 mb-8 text-sm text-slate-600">
-                <div className="flex items-center gap-2"><span className="text-[#00bcd4]">♥</span> Qualified Teacher</div>
-                <div className="flex items-center gap-2"><span className="text-[#00bcd4]">♥</span> Strategic Location</div>
-                <div className="flex items-center gap-2"><span className="text-[#00bcd4]">♥</span> Love & Care</div>
-                <div className="flex items-center gap-2"><span className="text-[#00bcd4]">♥</span> Active Learning</div>
-                <div className="flex items-center gap-2"><span className="text-[#00bcd4]">♥</span> Delicious Food</div>
-                <div className="flex items-center gap-2"><span className="text-[#00bcd4]">♥</span> Transportation</div>
+
+              {/* Feature grid */}
+              <div className="grid sm:grid-cols-2 gap-4">
+                {features.map((f) => (
+                  <div key={f.title} className="card-hover flex items-start gap-4 bg-white rounded-2xl p-4 shadow-sm border border-slate-100">
+                    <div className="w-11 h-11 rounded-xl flex items-center justify-center text-xl shrink-0"
+                      style={{ background: f.color + "18" }}>
+                      {f.icon}
+                    </div>
+                    <div>
+                      <p className="sec-title text-lg text-slate-800 leading-none">{f.title}</p>
+                      <p className="body-text text-slate-500 text-xs font-medium leading-relaxed mt-1">{f.desc}</p>
+                    </div>
+                  </div>
+                ))}
               </div>
-              <button className="bg-[#00bcd4] hover:bg-cyan-600 text-white px-6 py-2.5 rounded text-sm font-semibold transition-colors">
-                View Details
-              </button>
             </div>
-            <div>
-              {/* Replace with your respective activity image */}
-              <img src="/image1.JPG" alt={`${activeTab} activity`} className="w-full h-full object-cover rounded shadow-md border-4 border-slate-50" />
+
+            {/* Right image */}
+            <div className="relative">
+              <div className="absolute -top-6 -right-6 w-56 h-56 rounded-full bg-[#00bcd4]/10 -z-10" />
+              <div className="absolute -bottom-6 -left-6 w-40 h-40 rounded-full bg-[#ff5252]/10 -z-10" />
+              <img
+                src="/img2.jpg"
+                alt="Student painting"
+                className="w-full h-auto object-cover rounded-3xl shadow-xl border-4 border-white"
+                onError={(e) => { (e.target as HTMLImageElement).src = "https://images.unsplash.com/photo-1503676260728-1c00da094a0b?w=600&q=80"; }}
+              />
+              <div className="absolute -bottom-4 -left-4 bg-[#ff5252] text-white rounded-2xl px-5 py-3 shadow-lg">
+                <p className="sec-title text-sm">Admissions Open!</p>
+                <p className="body-text text-xs font-bold opacity-90">Year Round Enrolment</p>
+              </div>
             </div>
           </div>
-        </div>
-      </section>
+        </section>
 
-      {/* Testimonial Section */}
-      <section className="py-16 px-6 text-center max-w-4xl mx-auto">
-        <h2 className="text-3xl md:text-4xl font-bold text-slate-800 mb-12 font-serif">What Happy Parent's Say ?</h2>
-        <div className="mb-6">
-          <p className="text-sm font-bold text-slate-700 mb-4">"We thank you for taking good care of our daughter"</p>
-          <div className="text-4xl text-[#ff5252] font-serif mb-2">❞</div>
-          <p className="text-[#00bcd4] font-bold font-serif text-lg">Priyanka singh</p>
+        {/* ── Decorative divider ── */}
+        <div className="w-full overflow-hidden leading-none">
+          <svg viewBox="0 0 1440 60" className="w-full" preserveAspectRatio="none">
+            <path d="M0,30 C360,60 1080,0 1440,30 L1440,60 L0,60 Z" fill="#f0fafb" />
+          </svg>
         </div>
-        <div className="flex justify-center gap-2 mt-4">
-          <div className="w-3 h-3 rounded-full border-2 border-[#673ab7]"></div>
-          <div className="w-3 h-3 rounded-full bg-[#00bcd4]"></div>
-        </div>
-      </section>
-      
-      {/* Footer Decorative Grass Break */}
-      {/* Modern Pre-Footer CTA with Floating CSS Shapes */}
-      <section className="relative py-24 px-6 overflow-hidden bg-[#00bcd4] mt-12">
-        {/* Floating Background Shapes */}
-        <div className="absolute top-10 left-10 w-32 h-32 bg-white/20 rounded-full blur-2xl"></div>
-        <div className="absolute -bottom-10 -left-10 w-48 h-48 bg-[#ffb300]/30 rounded-full blur-xl"></div>
-        <div className="absolute top-1/4 right-20 w-24 h-24 bg-[#ff5252]/40 rounded-3xl rotate-45 blur-md"></div>
-        <div className="absolute bottom-10 right-1/4 w-40 h-40 bg-[#8bc34a]/30 rounded-full blur-2xl"></div>
-        <div className="absolute -top-16 right-1/3 w-64 h-64 bg-white/10 rounded-full blur-3xl"></div>
 
-        {/* Decorative Grid Pattern (Subtle) */}
-        <div className="absolute inset-0 bg-[linear-gradient(rgba(255,255,255,0.1)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.1)_1px,transparent_1px)] bg-[size:40px_40px] opacity-20"></div>
+        {/* ── Activities Tabbed Section ── */}
+        <section className="py-16 bg-[#f0fafb] px-6">
+          <div className="max-w-5xl mx-auto">
+            <div className="text-center mb-10">
+              <span className="inline-flex items-center gap-2 bg-[#673ab7]/10 text-[#673ab7] text-xs font-black uppercase tracking-[0.15em] px-4 py-1.5 rounded-full mb-4 body-text">
+                🎒 Activities
+              </span>
+              <h2 className="sec-title text-4xl text-slate-800">
+                What We <span className="text-[#673ab7]">Offer</span>
+              </h2>
+              <div className="flex justify-center gap-2 mt-3">
+                <div className="h-1 w-12 rounded-full bg-[#ff5252]" />
+                <div className="h-1 w-6 rounded-full bg-[#673ab7]" />
+              </div>
+            </div>
 
-        {/* Content */}
-        <div className="relative z-10 max-w-4xl mx-auto text-center">
-          <h2 className="text-4xl md:text-5xl font-extrabold text-white mb-6 tracking-tight drop-shadow-sm">
-            Give Your Child The Best Start
+            <div className="bg-white rounded-3xl shadow-sm border border-slate-100 overflow-hidden">
+              {/* Tab pills row */}
+              <div className="flex overflow-x-auto border-b border-slate-100">
+                {tabs.map((t) => (
+                  <button
+                    key={t.id}
+                    onClick={() => setActiveTab(t.id)}
+                    className={`flex-1 min-w-[80px] py-5 flex flex-col items-center gap-2 text-xs font-black uppercase tracking-widest transition-all body-text ${
+                      activeTab === t.id ? "text-white" : "text-slate-400 hover:text-slate-600 bg-slate-50"
+                    }`}
+                    style={activeTab === t.id ? { background: t.color } : {}}
+                  >
+                    <span className="text-2xl">{t.icon}</span>
+                    {t.id}
+                  </button>
+                ))}
+              </div>
+
+              {/* Tab content */}
+              <div className="p-8 md:p-12 grid md:grid-cols-2 gap-10 items-center tab-fade" key={activeTab}>
+                <div>
+                  <div className="flex items-center gap-3 mb-4">
+                    <div className="w-12 h-12 rounded-2xl flex items-center justify-center text-2xl"
+                      style={{ background: activeTabData.color + "18" }}>
+                      {activeTabData.icon}
+                    </div>
+                    <h3 className="sec-title text-3xl text-slate-800">{activeTab}</h3>
+                  </div>
+                  <div className="flex gap-2 mb-5">
+                    <div className="h-1 w-10 rounded-full bg-[#ff5252]" />
+                    <div className="h-1 w-5 rounded-full" style={{ background: activeTabData.color }} />
+                  </div>
+                  <p className="body-text text-slate-500 text-[15px] leading-relaxed mb-7 font-medium">
+                    {tabDescriptions[activeTab]}
+                  </p>
+                  <div className="grid grid-cols-2 gap-3 mb-8">
+                    {["Qualified Teachers", "Strategic Location", "Love & Care", "Active Learning", "Delicious Food", "Transportation"].map((item) => (
+                      <div key={item} className="flex items-center gap-2 body-text text-sm text-slate-600 font-medium">
+                        <span className="w-2 h-2 rounded-full shrink-0" style={{ background: activeTabData.color }} />
+                        {item}
+                      </div>
+                    ))}
+                  </div>
+                  <a
+                    href="/our-course"
+                    className="inline-flex items-center gap-2 text-white font-black px-7 py-3 rounded-2xl shadow-md hover:shadow-lg transition-all hover:-translate-y-0.5 body-text text-sm"
+                    style={{ background: activeTabData.color }}
+                  >
+                    View Details →
+                  </a>
+                </div>
+                <div className="relative">
+                  <div className="absolute -top-4 -right-4 w-32 h-32 rounded-full opacity-10 -z-10"
+                    style={{ background: activeTabData.color }} />
+                  <img
+                    src={activeTabData.image}
+                    alt={`${activeTab} activity`}
+                    className="w-full h-64 object-cover rounded-3xl shadow-lg border-4 border-slate-50"
+                    onError={(e) => { (e.target as HTMLImageElement).src = "https://images.unsplash.com/photo-1544717305-2782549b5136?w=600&q=80"; }}
+                  />
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* ── Testimonials ── */}
+        <section className="py-20 px-6 max-w-4xl mx-auto text-center">
+          <span className="inline-flex items-center gap-2 bg-[#ff5252]/10 text-[#ff5252] text-xs font-black uppercase tracking-[0.15em] px-4 py-1.5 rounded-full mb-4 body-text">
+            💬 Parent Stories
+          </span>
+          <h2 className="sec-title text-4xl text-slate-800 mb-3">
+            What Happy <span className="text-[#ff5252]">Parents Say</span>
           </h2>
-          <p className="text-cyan-50 text-lg md:text-xl font-medium mb-10 max-w-2xl mx-auto leading-relaxed">
-            Admissions are now open for the upcoming academic year. Join our vibrant community of learners and let your little one shine!
-          </p>
-          <div className="flex flex-col sm:flex-row gap-5 justify-center items-center">
-            <button className="bg-[#ff5252] hover:bg-red-600 text-white px-10 py-4 rounded-xl text-base font-extrabold uppercase tracking-widest transition-all shadow-xl hover:-translate-y-1 w-full sm:w-auto border-2 border-[#ff5252]">
-              Apply Now
-            </button>
-            <button className="bg-transparent border-2 border-white hover:bg-white hover:text-[#00bcd4] text-white px-10 py-4 rounded-xl text-base font-extrabold uppercase tracking-widest transition-all shadow-lg w-full sm:w-auto">
-              Contact Us
-            </button>
+          <div className="flex justify-center gap-2 mb-12">
+            <div className="h-1 w-12 rounded-full bg-[#ff5252]" />
+            <div className="h-1 w-6 rounded-full bg-[#00bcd4]" />
           </div>
-        </div>
-      </section>
-    </div>
+
+          {/* Testimonial card */}
+          <div className="relative bg-white rounded-3xl shadow-sm border border-slate-100 p-10 max-w-2xl mx-auto tab-fade" key={activeTestimonial}>
+            <div className="text-5xl mb-4" style={{ color: "#ff5252", fontFamily: "Georgia, serif" }}>"</div>
+            <p className="body-text text-slate-600 text-base font-medium leading-relaxed mb-6 italic">
+              {testimonials[activeTestimonial].quote}
+            </p>
+            <div className="w-10 h-0.5 bg-[#00bcd4] mx-auto mb-4" />
+            <p className="sec-title text-xl text-[#00bcd4]">{testimonials[activeTestimonial].name}</p>
+            <p className="body-text text-slate-400 text-xs font-semibold mt-1">{testimonials[activeTestimonial].role}</p>
+          </div>
+
+          {/* Dot navigation */}
+          <div className="flex justify-center gap-3 mt-8">
+            {testimonials.map((_, i) => (
+              <button
+                key={i}
+                onClick={() => setActiveTestimonial(i)}
+                className="transition-all duration-300 rounded-full"
+                style={{
+                  width: activeTestimonial === i ? "28px" : "10px",
+                  height: "10px",
+                  background: activeTestimonial === i ? "#00bcd4" : "#e2e8f0",
+                }}
+              />
+            ))}
+          </div>
+        </section>
+
+        {/* ── CTA Banner ── */}
+        <section className="relative py-24 px-6 overflow-hidden bg-[#00bcd4]">
+          {/* Background blobs */}
+          <div className="absolute top-10 left-10 w-40 h-40 bg-white/20 rounded-full blur-2xl" />
+          <div className="absolute -bottom-10 -left-10 w-56 h-56 bg-[#ff9800]/25 rounded-full blur-xl" />
+          <div className="absolute top-1/4 right-20 w-28 h-28 bg-[#ff5252]/30 rounded-3xl rotate-45 blur-md" />
+          <div className="absolute bottom-10 right-1/4 w-48 h-48 bg-[#4caf50]/20 rounded-full blur-2xl" />
+          <div className="absolute inset-0 opacity-10"
+            style={{ backgroundImage: "radial-gradient(circle, white 1.5px, transparent 1.5px)", backgroundSize: "28px 28px" }} />
+
+          <div className="relative z-10 max-w-3xl mx-auto text-center">
+            <h2 className="sec-title text-4xl md:text-5xl text-white mb-5" style={{ textShadow: "0 2px 16px rgba(0,0,0,0.15)" }}>
+              Give Your Child The Best Start
+            </h2>
+            <p className="body-text text-cyan-50 text-base md:text-lg font-medium mb-10 max-w-2xl mx-auto leading-relaxed">
+              Admissions are now open for the upcoming academic year. Join our vibrant community of learners and let your little one shine!
+            </p>
+            <div className="flex flex-col sm:flex-row gap-5 justify-center">
+              <a
+                href="/admission"
+                className="inline-flex items-center justify-center gap-3 bg-[#ff5252] hover:bg-red-600 text-white font-black px-10 py-4 rounded-2xl shadow-xl hover:shadow-2xl transition-all hover:-translate-y-1 body-text text-base uppercase tracking-widest border-2 border-[#ff5252]"
+              >
+                🎓 Apply Now
+              </a>
+              <a
+                href="/contact"
+                className="inline-flex items-center justify-center gap-3 bg-transparent border-2 border-white hover:bg-white hover:text-[#00bcd4] text-white font-black px-10 py-4 rounded-2xl shadow-lg transition-all body-text text-base uppercase tracking-widest"
+              >
+                📞 Contact Us
+              </a>
+            </div>
+          </div>
+        </section>
+
+      </div>
+    </>
   );
 }

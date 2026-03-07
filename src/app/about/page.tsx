@@ -34,11 +34,8 @@ export default function AboutPage() {
           </div>
           
           <div className="relative">
-            {/* Placeholder for the School Bus illustration */}
-            <div className="w-full h-[400px] md:h-[500px] bg-slate-100 rounded-3xl border-8 border-slate-50 shadow-xl flex items-center justify-center flex-col text-slate-400">
-               <svg className="w-24 h-24 mb-4 text-[#ffb300]" fill="currentColor" viewBox="0 0 24 24"><path d="M4 16c0 1.1.9 2 2 2h1v2c0 1.1.9 2 2 2s2-.9 2-2v-2h2v2c0 1.1.9 2 2 2s2-.9 2-2v-2h1c1.1 0 2-.9 2-2V7c0-2.8-2.2-5-5-5H9C6.2 2 4 4.2 4 7v9zm3.5-2c-.8 0-1.5-.7-1.5-1.5S6.7 11 7.5 11 9 11.7 9 12.5 8.3 14 7.5 14zm9 0c-.8 0-1.5-.7-1.5-1.5s.7-1.5 1.5-1.5 1.5.7 1.5 1.5-.7 1.5-1.5 1.5zm-11-7V5h13v2H5.5z" /></svg>
-               <span className="font-bold text-lg">School Bus Image Here</span>
-               <span className="text-sm">(Add /school-bus.png to public folder)</span>
+            <div className="w-full h-[400px] md:h-[500px] bg-slate-100 rounded-3xl border-8 border-slate-50 shadow-xl overflow-hidden">
+               <img src="/10382636_164001750460976_5533876974069022762_n.jpg" alt="About The Kids Square" className="w-full h-full object-cover" />
             </div>
           </div>
         </div>
