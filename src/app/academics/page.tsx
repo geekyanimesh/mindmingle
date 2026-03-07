@@ -33,8 +33,8 @@ const sections = [
     title: "Kids Square Curriculum",
     content:
       "We believe education is far more than just academic success. Curriculum at The Kids Square is developed basis this understanding putting equal emphasis on overall development of kids along with the academics. Teaching is innovatively structured to aid child's personality development and self-confidence. Our curriculum has been designed after a detailed research for the best development and learning techniques of early childhood. It is supported by various teaching aids, innovative classrooms and 'do it yourself' concepts, as well as outdoor activities. Each and every kid has his/her own strengths and ways through which they would learn better. We use special tools and technique to identify these in every kid at our school.",
-    image: "/academics-curriculum.jpg",
-    imageAlt: "Christmas celebration at Kids Square",
+    image: "/IMG_20150720_111950.jpg",
+    imageAlt: "Kids Square Curriculum",
     imageFallback: "https://images.unsplash.com/photo-1544717305-2782549b5136?w=600&q=80",
   },
   {
@@ -43,7 +43,7 @@ const sections = [
     title: "Educational Tours",
     content:
       "Educational tours is a part of The KiDS Square Curriculum. We take our students to various places like Bank & ATM, Fruit & Vegetable Market, Dairy, Departmental Store / Mall, Parks, Zoo, Post Office etc. to give them real time experience so that they see, feel, experience and learn the things.",
-    image: "/academics-tour.jpg",
+    image: "/10625103_1546642892220765_8393717664786123953_n.jpg",
     imageAlt: "Educational tour at Reliance Fresh",
     imageFallback: "https://images.unsplash.com/photo-1488521787991-ed7bbaae773c?w=600&q=80",
   },

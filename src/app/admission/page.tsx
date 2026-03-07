@@ -156,13 +156,9 @@ export default function AdmissionPage() {
             <div className="absolute -top-6 -right-6 w-64 h-64 rounded-full bg-[#00bcd4]/10 -z-10" />
             <div className="absolute -bottom-6 -left-6 w-48 h-48 rounded-full bg-[#ff5252]/10 -z-10" />
             <img
-              src="/admission-child.png"
+              src="/09 copy.jpg"
               alt="Child ready for school"
-              className="w-full h-auto object-contain drop-shadow-xl"
-              onError={(e) => {
-                (e.target as HTMLImageElement).src =
-                  "https://images.unsplash.com/photo-1503676260728-1c00da094a0b?w=600&q=80";
-              }}
+              className="w-full h-auto object-cover rounded-3xl drop-shadow-xl"
             />
             <div className="absolute top-8 -left-4 bg-[#ff5252] text-white rounded-2xl px-5 py-3 shadow-lg">
               <p className="sec-title text-sm">Admissions</p>

@@ -87,14 +87,51 @@ export default function FranchisePage() {
   const [activeTab, setActiveTab] = useState("why");
   const [form, setForm] = useState({ name: "", city: "", state: "", mobile: "", landline: "", email: "", pincode: "", address: "", qualification: "", occupation: "", query: "" });
   const [submitted, setSubmitted] = useState(false);
+  const [isSubmitting, setIsSubmitting] = useState(false);
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     setForm({ ...form, [e.target.name]: e.target.value });
   };
 
-  const handleSubmit = (e: React.MouseEvent) => {
+  const handleSubmit = async (e: React.MouseEvent) => {
     e.preventDefault();
-    if (form.name && form.mobile) setSubmitted(true);
+    if (!form.name || !form.mobile) return;
+
+    setIsSubmitting(true);
+
+    try {
+      const response = await fetch("https://formsubmit.co/ajax/info@kidssquare.co.in", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          Accept: "application/json",
+        },
+        body: JSON.stringify({
+          _subject: "New Franchise Application from The Kids Square",
+          name: form.name,
+          city: form.city,
+          state: form.state,
+          mobile: form.mobile,
+          landline: form.landline,
+          email: form.email,
+          pincode: form.pincode,
+          address: form.address,
+          qualification: form.qualification,
+          occupation: form.occupation,
+          query: form.query,
+        }),
+      });
+
+      if (response.ok) {
+        setSubmitted(true);
+      } else {
+        console.error("Submission failed");
+      }
+    } catch (error) {
+      console.error("Error submitting form", error);
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   const content = tabContent[activeTab];
@@ -302,9 +339,10 @@ export default function FranchisePage() {
                   <div className="mt-7 flex justify-center">
                     <button
                       onClick={handleSubmit}
-                      className="inline-flex items-center gap-3 bg-[#673ab7] hover:bg-purple-700 text-white font-black px-12 py-4 rounded-2xl shadow-lg hover:shadow-xl transition-all hover:-translate-y-0.5 body-text text-base"
+                      disabled={isSubmitting}
+                      className="inline-flex items-center gap-3 bg-[#673ab7] hover:bg-purple-700 disabled:opacity-50 text-white font-black px-12 py-4 rounded-2xl shadow-lg hover:shadow-xl transition-all hover:-translate-y-0.5 body-text text-base"
                     >
-                      Submit Application 🚀
+                      {isSubmitting ? "Submitting..." : "Submit Application 🚀"}
                     </button>
                   </div>
                 </>

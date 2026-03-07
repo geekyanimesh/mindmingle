@@ -4,11 +4,11 @@ import { useState } from "react";
 import ImageSlideshow from "@/src/components/ImageSlideshow";
 
 const tabs = [
-  { id: "Music", icon: "🎵", color: "#673ab7" },
-  { id: "Learn", icon: "🎓", color: "#ff5252" },
-  { id: "Painting", icon: "🎨", color: "#ff9800" },
-  { id: "Sports", icon: "⚽", color: "#00bcd4" },
-  { id: "Playground", icon: "🏆", color: "#4caf50" },
+  { id: "Music", icon: "🎵", color: "#673ab7", image: "/image1.JPG" },
+  { id: "Learn", icon: "🎓", color: "#ff5252", image: "/10846384_1550551535163234_4269812039320515755_n (1).jpg" },
+  { id: "Painting", icon: "🎨", color: "#ff9800", image: "/DSC_0874.JPG" },
+  { id: "Sports", icon: "⚽", color: "#00bcd4", image: "/_DSC0076.JPG" },
+  { id: "Playground", icon: "🏆", color: "#4caf50", image: "/_DSC0057.JPG" },
 ];
 
 const tabDescriptions: Record<string, string> = {
@@ -191,7 +191,7 @@ export default function Home() {
                   <div className="absolute -top-4 -right-4 w-32 h-32 rounded-full opacity-10 -z-10"
                     style={{ background: activeTabData.color }} />
                   <img
-                    src="/image1.JPG"
+                    src={activeTabData.image}
                     alt={`${activeTab} activity`}
                     className="w-full h-64 object-cover rounded-3xl shadow-lg border-4 border-slate-50"
                     onError={(e) => { (e.target as HTMLImageElement).src = "https://images.unsplash.com/photo-1544717305-2782549b5136?w=600&q=80"; }}

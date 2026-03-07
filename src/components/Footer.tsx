@@ -129,7 +129,7 @@ export default function Footer() {
       <div className="bg-[#151515] py-5 mt-4">
         <div className="max-w-7xl mx-auto px-6 flex flex-col md:flex-row justify-between items-center text-[12px] font-bold tracking-wide text-slate-500 gap-3">
           <p>COPYRIGHT © {new Date().getFullYear()} THE KIDS SQUARE PVT LTD. ALL RIGHTS RESERVED</p>
-          <p>DESIGNED & DEVELOPED BY <span className="text-[#00bcd4]">xlr8Devs</span></p>
+          <p>DESIGNED & DEVELOPED BY <a href="mailto:xlr8developers@gmail.com" className="text-[#00bcd4] hover:text-white transition-colors">xlr8Devs</a></p>
         </div>
       </div>
     </footer>

@@ -142,7 +142,7 @@ export default function ParentsCornerPage() {
               <div className="absolute -top-6 -right-6 w-56 h-56 rounded-full bg-[#00bcd4]/10 -z-10" />
               <div className="absolute -bottom-6 -left-6 w-40 h-40 rounded-full bg-[#ff5252]/10 -z-10" />
               <img
-                src="/parents-ptm.jpg"
+                src="/IMG_3052.JPG"
                 alt="Parent-Teacher Meeting"
                 className="w-full h-72 object-cover rounded-3xl shadow-xl"
                 onError={(e) => { (e.target as HTMLImageElement).src = "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=600&q=80"; }}

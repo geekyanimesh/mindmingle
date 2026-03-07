@@ -36,15 +36,46 @@ const contactInfo = [
 export default function ContactPage() {
   const [form, setForm] = useState({ name: "", email: "", phone: "", address: "", message: "" });
   const [submitted, setSubmitted] = useState(false);
+  const [isSubmitting, setIsSubmitting] = useState(false);
   const [focused, setFocused] = useState<string | null>(null);
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     setForm({ ...form, [e.target.name]: e.target.value });
   };
 
-  const handleSubmit = (e: React.MouseEvent) => {
+  const handleSubmit = async (e: React.MouseEvent) => {
     e.preventDefault();
-    if (form.name && form.email) setSubmitted(true);
+    if (!form.name || !form.email) return;
+
+    setIsSubmitting(true);
+
+    try {
+      const response = await fetch("https://formsubmit.co/ajax/info@kidssquare.co.in", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          Accept: "application/json",
+        },
+        body: JSON.stringify({
+          _subject: "New Contact Form Submission from The Kids Square",
+          name: form.name,
+          email: form.email,
+          phone: form.phone,
+          address: form.address,
+          message: form.message,
+        }),
+      });
+
+      if (response.ok) {
+        setSubmitted(true);
+      } else {
+        console.error("Submission failed");
+      }
+    } catch (error) {
+      console.error("Error submitting form", error);
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   return (
@@ -242,9 +273,10 @@ export default function ContactPage() {
 
                 <button
                   onClick={handleSubmit}
-                  className="mt-6 w-full sm:w-auto inline-flex items-center justify-center gap-3 bg-[#ff5252] hover:bg-[#e53935] text-white font-black px-10 py-4 rounded-2xl shadow-lg hover:shadow-xl transition-all hover:-translate-y-0.5 body-text text-base"
+                  disabled={isSubmitting}
+                  className="mt-6 w-full sm:w-auto inline-flex items-center justify-center gap-3 bg-[#ff5252] hover:bg-[#e53935] disabled:opacity-50 text-white font-black px-10 py-4 rounded-2xl shadow-lg hover:shadow-xl transition-all hover:-translate-y-0.5 body-text text-base"
                 >
-                  Send Message 🚀
+                  {isSubmitting ? "Sending..." : "Send Message 🚀"}
                 </button>
               </>
             )}

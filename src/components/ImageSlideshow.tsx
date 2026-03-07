@@ -95,10 +95,18 @@ export default function ImageSlideshow() {
             index === currentIndex ? "opacity-100 z-10" : "opacity-0 z-0"
           }`}
         >
+          {/* Blurred background fills side/top bars */}
+          <img
+            src={src}
+            alt=""
+            aria-hidden="true"
+            className="absolute inset-0 w-full h-full object-cover scale-110 blur-xl brightness-75"
+          />
+          {/* Main image at true proportions */}
           <img
             src={src}
             alt={`School slide ${index + 1}`}
-            className="w-full h-full object-cover object-center"
+            className="relative z-10 w-full h-full object-contain object-center"
           />
         </div>
       ))}

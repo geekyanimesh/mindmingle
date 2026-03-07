@@ -166,9 +166,9 @@ export default function OurCoursePage() {
               <div className="relative flex justify-center py-6">
                 <div className="absolute inset-0 rounded-full bg-gradient-to-br from-[#00bcd4]/10 to-[#ff9800]/10 scale-90" />
                 <img
-                  src="/courses-child.png"
+                  src="/10392553_1538416899710031_7720911818438288906_n.jpg"
                   alt="Child learning"
-                  className="relative z-10 w-64 h-80 object-contain drop-shadow-2xl"
+                  className="relative z-10 w-64 h-80 object-cover rounded-3xl drop-shadow-2xl"
                   onError={(e) => { (e.target as HTMLImageElement).src = "https://images.unsplash.com/photo-1503676260728-1c00da094a0b?w=400&q=80"; }}
                 />
               </div>
@@ -292,9 +292,9 @@ export default function OurCoursePage() {
               <div className="absolute -top-6 -right-6 w-56 h-56 rounded-full bg-[#00bcd4]/10 -z-10" />
               <div className="absolute -bottom-6 -left-6 w-40 h-40 rounded-full bg-[#ff5252]/10 -z-10" />
               <img
-                src="/courses-facility-child.png"
-                alt="Child with graduation cap"
-                className="w-full h-auto object-contain drop-shadow-xl"
+                src="/DSC_0927.JPG"
+                alt="School Facility"
+                className="w-full h-auto object-cover rounded-3xl drop-shadow-xl"
                 onError={(e) => { (e.target as HTMLImageElement).src = "https://images.unsplash.com/photo-1491013516836-7db643ee125a?w=500&q=80"; }}
               />
               <div className="absolute top-8 -left-4 bg-[#ff9800] text-white rounded-2xl px-5 py-3 shadow-lg">
