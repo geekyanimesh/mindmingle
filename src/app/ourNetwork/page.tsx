@@ -3,166 +3,27 @@
 import { useState } from "react";
 
 const branches = [
-  {
-    city: "Satna",
-    state: "Madhya Pradesh",
-    name: "Little Angel",
-    address: "MIG – 30, Bharhut Nagar, Near Dr. Rakesh Aggarwal, Satna, Madhya Pradesh – 485001",
-    email: "mp.littleangel@thekidssquare.com",
-    phone: "+91-9827253376, 8109336103",
-  },
-  {
-    city: "Patna",
-    state: "Bihar",
-    name: "Sparkles",
-    address: "Behind Himgiri Appartments, In Front of Braj Kunj, Anandpuri, West Boring – Canal Road, Patna, Bihar – 800001",
-    email: "bihar.sparkles@thekidssquare.com",
-    phone: "0612-2557946, +91-9973103898",
-  },
-  {
-    city: "Bolpur",
-    state: "West Bengal",
-    name: "Pumpkin Patch",
-    address: "Bandhgora, Near Subhalanga Lodge, P.O. – Bolpur, P.S. – Bolpur, Disstt. – Birbhum, West Bengal – 731204",
-    email: "wb.pumpkinpatch@thekidssquare.com",
-    phone: "+91-9433955676, 7407937326",
-  },
-  {
-    city: "Indore",
-    state: "Madhya Pradesh",
-    name: "First Step",
-    address: "97-B, Sangam Nagar, Near Rajyog Kendra, Delhi – Haridwar Road, Indore, M.P. – 452006",
-    email: "mp.firststep@thekidssquare.com",
-    phone: "+91-9669623428, 9301933472",
-  },
-  {
-    city: "Roorkee",
-    state: "Uttarakhand",
-    name: "Little Stars",
-    address: "Shakumbri Enclave, Near Maruti Showroom, Delhi – Haridwar Road, Roorkee, Uttarakhand – 247667",
-    email: "uk.littlestars@thekidssquare.com",
-    phone: "+91-9756485836, 9456184574",
-  },
-  {
-    city: "Bihar Sharif, Nalanda",
-    state: "Bihar",
-    name: "Little Flowers",
-    address: "Nichali Kila, Garhpar, Opposite Yadav Lodge, Bihar Sharif, Nalanda, Bihar – 803101",
-    email: "bihar.littleflowers@thekidssquare.com",
-    phone: "+91-7488025153, 9835675064",
-  },
-  {
-    city: "Mira Road (East), Mumbai",
-    state: "Maharashtra",
-    name: "Stepping Stones",
-    address: "Shop No. 1,2,3 & 4, Shiv Prasad Building, Deepak Hospital Road, Next to Orange Hospital, Indralok Phase – 3, Bhayander East, Mira Bhayander Road, Maharashtra – 401105",
-    email: "mh.steppingstones@thekidssquare.com",
-    phone: "+91-9833516187, 9920489275",
-  },
-  {
-    city: "Faizabad",
-    state: "Uttar Pradesh",
-    name: "Rising Stars",
-    address: "Pandey Colony, Ranopali, Near Saketpuri Awasiya Yojna, Faizabad, Uttar Pradesh – 224001",
-    email: "up.risingstars@thekidssquare.com",
-    phone: null,
-  },
-  {
-    city: "Purnea",
-    state: "Bihar",
-    name: "Kidzania",
-    address: "Near Bypass Road, Moh: Ufrail, Purnea, Bihar – 854301",
-    email: "bihar.kidzania@thekidssquare.com",
-    phone: null,
-  },
-  {
-    city: "Mira Road",
-    state: "Maharashtra",
-    name: "Cute Ducklings",
-    address: "Mumbai, Maharashtra",
-    email: null,
-    phone: null,
-  },
-  {
-    city: "Moradabad",
-    state: "Uttar Pradesh",
-    name: "Bachpan",
-    address: "Moradabad, Uttar Pradesh",
-    email: null,
-    phone: null,
-  },
-  {
-    city: "Uri, Baramula",
-    state: "Jammu & Kashmir",
-    name: "Blooming Buds",
-    address: "Uri, Baramula, Jammu & Kashmir",
-    email: null,
-    phone: null,
-  },
-  {
-    city: "Bangalore",
-    state: "Karnataka",
-    name: "Champs World",
-    address: "Bangalore, Karnataka",
-    email: null,
-    phone: null,
-  },
-  {
-    city: "Kurnool",
-    state: "Andhra Pradesh",
-    name: "Wonderkids",
-    address: "Kurnool, Andhra Pradesh",
-    email: null,
-    phone: null,
-  },
-  {
-    city: "Asansol",
-    state: "West Bengal",
-    name: "Kinder's Joy",
-    address: "Asansol, West Bengal",
-    email: null,
-    phone: null,
-  },
-  {
-    city: "Srinagar",
-    state: "Jammu & Kashmir",
-    name: "Hazelwood",
-    address: "Srinagar, J&K",
-    email: null,
-    phone: null,
-  },
-  {
-    city: "Raipur",
-    state: "Chhattisgarh",
-    name: "Bright Minds",
-    address: "Raipur, Chhattisgarh",
-    email: null,
-    phone: null,
-  },
-  {
-    city: "Pune",
-    state: "Maharashtra",
-    name: "Island",
-    address: "Pune, Maharashtra",
-    email: null,
-    phone: null,
-  },
-  {
-    city: "Palwal",
-    state: "Haryana",
-    name: "Nanhe Kadam",
-    address: "Palwal, Haryana",
-    email: null,
-    phone: null,
-  },
-  {
-    city: "Mandla",
-    state: "Madhya Pradesh",
-    name: "Wonderland",
-    address: "Mandla, Madhya Pradesh",
-    email: null,
-    phone: null,
-  },
+  { city: "Satna", state: "Madhya Pradesh", name: "Little Angel" },
+  { city: "Patna", state: "Bihar", name: "Sparkles" },
+  { city: "Bolpur", state: "West Bengal", name: "Pumpkin Patch" },
+  { city: "Indore", state: "Madhya Pradesh", name: "First Step" },
+  { city: "Roorkee", state: "Uttarakhand", name: "Little Stars" },
+  { city: "Bihar Sharif, Nalanda", state: "Bihar", name: "Little Flowers" },
+  { city: "Mira Road (East), Mumbai", state: "Maharashtra", name: "Stepping Stones" },
+  { city: "Faizabad", state: "Uttar Pradesh", name: "Rising Stars" },
+  { city: "Purnea", state: "Bihar", name: "Kidzania" },
+  { city: "Mira Road", state: "Maharashtra", name: "Cute Ducklings" },
+  { city: "Moradabad", state: "Uttar Pradesh", name: "Bachpan" },
+  { city: "Uri, Baramula", state: "Jammu & Kashmir", name: "Blooming Buds" },
+  { city: "Bangalore", state: "Karnataka", name: "Champs World" },
+  { city: "Kurnool", state: "Andhra Pradesh", name: "Wonderkids" },
+  { city: "Asansol", state: "West Bengal", name: "Kinder's Joy" },
+  { city: "Srinagar", state: "Jammu & Kashmir", name: "Hazelwood" },
+  { city: "Raipur", state: "Chhattisgarh", name: "Bright Minds" },
+  { city: "Pune", state: "Maharashtra", name: "Island" },
+  { city: "Palwal", state: "Haryana", name: "Nanhe Kadam" },
+  { city: "Mandla", state: "Madhya Pradesh", name: "Wonderland" },
+  { city: "Lucknow", state: "Uttar Pradesh", name: "Vatsalya" },
 ];
 
 const allStates = ["All", ...Array.from(new Set(branches.map((b) => b.state))).sort()];
@@ -174,7 +35,6 @@ const stats = [
   { icon: "🏆", label: "Awards Won", value: "25+" },
 ];
 
-// Cycle through brand colors per card
 const cardColors = ["#00bcd4", "#ff5252", "#673ab7", "#ff9800"];
 
 export default function OurNetworkPage() {
@@ -318,9 +178,9 @@ export default function OurNetworkPage() {
                     {/* Coloured top bar */}
                     <div className="h-2 w-full" style={{ background: color }} />
 
-                    <div className="p-6 flex flex-col flex-1">
-                      {/* Pin icon */}
-                      <div className="flex items-start gap-4 mb-4">
+                    <div className="p-6 flex flex-col items-start gap-3">
+                      {/* Pin icon + location */}
+                      <div className="flex items-start gap-4">
                         <div
                           className="pin-bounce w-12 h-12 rounded-2xl flex items-center justify-center text-xl shrink-0 shadow-sm"
                           style={{ background: color + "18" }}
@@ -339,41 +199,10 @@ export default function OurNetworkPage() {
                       </div>
 
                       {/* Branch name */}
-                      <p className="body-text text-sm font-bold text-slate-700 mb-3">
+                      <p className="body-text text-sm font-bold text-slate-700">
                         The KiDS Square –{" "}
                         <span style={{ color }}>{branch.name}</span>
                       </p>
-
-                      {/* Address */}
-                      {branch.address && (
-                        <p className="body-text text-slate-500 text-xs font-medium leading-relaxed mb-4 flex-1">
-                          📌 {branch.address}
-                        </p>
-                      )}
-
-                      {/* Contact details */}
-                      {(branch.email || branch.phone) && (
-                        <div className="border-t border-slate-100 pt-4 space-y-2">
-                          {branch.email && (
-                            <a
-                              href={`mailto:${branch.email}`}
-                              className="flex items-center gap-2 body-text text-xs font-semibold text-slate-500 hover:text-[#00bcd4] transition-colors"
-                            >
-                              <span className="text-sm">✉️</span>
-                              <span className="truncate">{branch.email}</span>
-                            </a>
-                          )}
-                          {branch.phone && (
-                            <a
-                              href={`tel:${branch.phone.split(",")[0].trim()}`}
-                              className="flex items-center gap-2 body-text text-xs font-semibold text-slate-500 hover:text-[#ff5252] transition-colors"
-                            >
-                              <span className="text-sm">📞</span>
-                              <span>{branch.phone}</span>
-                            </a>
-                          )}
-                        </div>
-                      )}
                     </div>
                   </div>
                 );

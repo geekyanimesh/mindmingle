@@ -20,7 +20,7 @@ export default function Footer() {
         <div>
           <div className="flex items-center gap-3 mb-5">
             <img src="/logo.jpeg" alt="The Kids Square" className="w-10 h-10 object-contain rounded-lg" />
-            <h3 className="text-white text-lg font-extrabold tracking-tight uppercase">The Kids Square Pvt Ltd</h3>
+            <h3 className="text-white text-lg font-extrabold tracking-tight uppercase">The Kids Square</h3>
           </div>
           <p className="text-[14px] leading-relaxed text-slate-400 font-medium">
             The Kids Square is one of the best play school chains ventured by Kids Square Private Limited, a pioneer organization in education. We believe that children need a safe, clean and hygienic environment in which they can grow.
@@ -128,7 +128,7 @@ export default function Footer() {
       {/* Copyright Bar */}
       <div className="bg-[#151515] py-5 mt-4">
         <div className="max-w-7xl mx-auto px-6 flex flex-col md:flex-row justify-between items-center text-[12px] font-bold tracking-wide text-slate-500 gap-3">
-          <p>COPYRIGHT © {new Date().getFullYear()} THE KIDS SQUARE PVT LTD. ALL RIGHTS RESERVED</p>
+          <p>COPYRIGHT © {new Date().getFullYear()} THE KIDS SQUARE ALL RIGHTS RESERVED</p>
           <p>DESIGNED & DEVELOPED BY <a href="mailto:xlr8developers@gmail.com" className="text-[#00bcd4] hover:text-white transition-colors">xlr8Devs</a></p>
         </div>
       </div>
