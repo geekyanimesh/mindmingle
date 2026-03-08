@@ -10,6 +10,7 @@ const navLinks = [
   { label: "Admission", href: "/admission" },
   { label: "Academics", href: "/academics" },
   { label: "Our Course", href: "/ourCourse" },
+  { label: "Our Product", href: "/ourProduct" },
   { label: "Parent's Corner", href: "/parentsCorner" },
   { label: "Our Network", href: "/ourNetwork" },
   { label: "Gallery", href: "/gallery" },
