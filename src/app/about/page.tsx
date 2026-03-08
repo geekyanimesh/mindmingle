@@ -1,5 +1,4 @@
 // src/app/about/page.tsx
-import Image from "next/link";
 
 export default function AboutPage() {
   return (
@@ -84,10 +83,9 @@ export default function AboutPage() {
           </div>
 
           <div className="relative pt-12 md:pt-0">
-             {/* Placeholder for Girl Playing Image */}
-             <div className="w-full h-[600px] bg-white rounded-[3rem] shadow-2xl overflow-hidden border-[16px] border-white">
-               <img src="/img2.jpg" alt="Child learning and playing" className="w-full h-full object-cover" />
-             </div>
+            <div className="w-full h-[600px] bg-white rounded-[3rem] shadow-2xl overflow-hidden border-[16px] border-white">
+              <img src="/img2.jpg" alt="Child learning and playing" className="w-full h-full object-cover" />
+            </div>
           </div>
         </div>
       </section>
@@ -102,14 +100,12 @@ export default function AboutPage() {
         <div className="flex justify-center">
           {/* Team Member Card */}
           <div className="bg-white rounded-3xl shadow-xl overflow-hidden border border-slate-100 max-w-sm hover:-translate-y-2 transition-transform duration-300">
-            <div className="h-64 bg-blue-50 flex items-end justify-center pt-8 px-8">
-              {/* Avatar Placeholder */}
-              <div className="w-48 h-48 bg-blue-500 rounded-t-full relative overflow-hidden shadow-inner">
-                <div className="absolute top-8 left-1/2 -translate-x-1/2 w-24 h-28 bg-[#e8bfa6] rounded-[2rem]"></div>
-                <div className="absolute top-6 left-1/2 -translate-x-1/2 w-26 h-12 bg-[#6b4c3a] rounded-t-3xl"></div>
-                <div className="absolute bottom-0 w-full h-16 bg-blue-600"></div>
-                <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-12 h-16 bg-white flex justify-center"><div className="w-2 h-full bg-blue-400"></div></div>
-              </div>
+            <div className="h-72 bg-blue-50 overflow-hidden">
+              <img
+                src="/rajen.jpeg"
+                alt="Mr. Rajendra Prasad"
+                className="w-full h-full object-cover object-top"
+              />
             </div>
             <div className="p-8 text-left">
               <h3 className="text-2xl font-extrabold text-[#ff5252] mb-1">Mr. Rajendra Prasad</h3>
