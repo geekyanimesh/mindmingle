@@ -76,14 +76,6 @@ export default function OurProductPage() {
                   Through the twin sciences of <strong className="text-slate-800">Dermatoglyphics</strong> and <strong className="text-slate-800">Mnemonics</strong>, Mindmiingle helps children and adults discover their inborn talents, learning styles, multiple intelligences, and dominant brain type — empowering them to live, learn, and grow to their fullest capacity.
                 </p>
               </div>
-              <a
-                href="https://www.mindmiingle.com"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="mt-8 inline-flex items-center gap-2 bg-[#ff6a00] hover:bg-orange-600 text-white font-black px-7 py-3.5 rounded-2xl shadow-md hover:shadow-lg transition-all hover:-translate-y-0.5 body-text text-sm"
-              >
-                🌐 Visit mindmiingle.com
-              </a>
             </div>
           </div>
         </section>
