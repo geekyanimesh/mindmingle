@@ -175,7 +175,7 @@ export default function FranchisePage() {
           <div className="flex items-center gap-2 text-white/70 text-sm font-semibold tracking-widest uppercase mb-3 body-text">
             <span>Home</span><span className="text-[#ff9800]">›</span><span className="text-white">Franchise</span>
           </div>
-          <h1 className="sec-title text-5xl md:text-6xl text-white" style={{ textShadow: "0 4px 20px rgba(0,0,0,0.3)" }}>Franchise</h1>
+          <h1 className="sec-title text-5xl md:text-6xl text-white" style={{ textShadow: "0 4px 20px rgba(0,0,0,0.3)" }}>Partner With Us</h1>
           <div className="mt-3 flex gap-2">
             <div className="h-1 w-16 rounded-full bg-[#ff5252]" />
             <div className="h-1 w-8 rounded-full bg-[#00bcd4]" />
