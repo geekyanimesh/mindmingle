@@ -7,14 +7,14 @@ import { usePathname } from "next/navigation";
 const navLinks = [
   { label: "Home", href: "/" },
   { label: "About Us", href: "/about" },
-  { label: "Admission", href: "/admission" },
-  { label: "Academics", href: "/academics" },
-  { label: "Our Course", href: "/ourCourse" },
+  //{ label: "Admission", href: "/admission" },
+  //{ label: "Academics", href: "/academics" },
+  { label: "Our Programs", href: "/ourCourse" },
   { label: "Our Product", href: "/ourProduct" },
-  { label: "Parent's Corner", href: "/parentsCorner" },
+  { label: "Client's Corner", href: "/parentsCorner" },
   { label: "Our Network", href: "/ourNetwork" },
   { label: "Gallery", href: "/gallery" },
-  { label: "Franchise", href: "/franchise" },
+  { label: "Partner With Us", href: "/franchise" },
   { label: "Contact Us", href: "/contactUs" },
 ];
 
